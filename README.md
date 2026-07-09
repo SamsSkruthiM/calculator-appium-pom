@@ -1,9 +1,8 @@
-
 # 📱 Calculator App Automation using Appium
 
-This is a small automation project I built to test the native **Google Calculator** app on an Android Emulator using **Appium**. I wrote it in **Java** and followed the **Page Object Model (POM)** pattern so the code stays clean and doesn't turn into a mess as it grows.
+This is a mobile automation project I built to automate the native **Google Calculator** app on an Android Emulator using **Appium**, **Java**, and **TestNG**. The project follows the **Page Object Model (POM)** design pattern to keep the framework clean, organized, and easy to maintain.
 
-The framework covers basic arithmetic — addition, subtraction, multiplication, and division — and checks that the results shown on screen actually match what's expected, using TestNG assertions.
+The framework automates basic arithmetic operations—addition, subtraction, multiplication, and division—and verifies that the displayed results match the expected values using TestNG assertions.
 
 ---
 
@@ -22,8 +21,10 @@ The framework covers basic arithmetic — addition, subtraction, multiplication,
 ## 📂 Project Structure
 
 ```
-calculator-appiumpom
+calculator-appium-pom
 │
+├── images
+├── videos
 ├── src
 │   ├── main
 │   │   ├── java
@@ -43,33 +44,33 @@ calculator-appiumpom
 
 ---
 
-## 📌 What It Does
+## 📌 Features
 
-- Automates the Google Calculator app end to end
-- Follows the Page Object Model, so locators and test logic stay separate
-- Runs on an Android Emulator
-- Test cases are written in TestNG
-- Uses Maven for managing dependencies
-- Simple enough to read through and extend on your own
+- Automates the Google Calculator application
+- Built using the Page Object Model (POM)
+- Executes tests on an Android Emulator
+- Uses TestNG for assertions and test execution
+- Maven for dependency management
+- Clean and reusable project structure
 
 ---
 
 ## 🧪 Test Cases
 
-Right now it covers:
+The project currently automates the following operations:
 
 - ✔ Addition
 - ✔ Subtraction
 - ✔ Multiplication
 - ✔ Division
 
-Each test runs the operation and asserts that the result matches what the calculator actually shows.
+Each test validates that the calculator displays the correct result.
 
 ---
 
-## ⚙ Before You Start
+## ⚙️ Prerequisites
 
-Make sure you've got these installed:
+Before running the project, make sure you have installed:
 
 - Java JDK 17
 - Android Studio
@@ -80,32 +81,40 @@ Make sure you've got these installed:
 
 ---
 
-## ▶️ How to Run It
+## ▶️ Running the Project
 
-**1. Clone the repo**
+### 1. Clone the repository
+
 ```bash
-git clone https://github.com/yourusername/calculator-appiumpom.git
+git clone https://github.com/SamsSkruthiM/calculator-appium-pom.git
 ```
 
-**2. Start the Appium server**
+### 2. Start the Appium Server
+
 ```bash
 appium
 ```
 
-**3. Fire up the Android Emulator**
-Launch it from Android Studio like you normally would.
+### 3. Launch the Android Emulator
 
-**4. Double-check the emulator is connected**
+Open Android Studio and start your emulator.
+
+### 4. Verify the emulator connection
+
 ```bash
 adb devices
 ```
-You should see something like:
+
+Expected output:
+
 ```
 emulator-5554    device
 ```
 
-**5. Run the tests**
-Either run `CalculatorTest.java` directly from IntelliJ, or from the terminal:
+### 5. Run the tests
+
+Run `CalculatorTest.java` from IntelliJ or execute:
+
 ```bash
 mvn clean test
 ```
@@ -116,49 +125,73 @@ mvn clean test
 
 ```
 Default Suite
+
 Total tests run: 4
 Passes: 4
 Failures: 0
 Skips: 0
+
 BUILD SUCCESS
 ```
 
 ---
 
-## 📖 How It's Organized
+## 📖 Framework Structure
 
-The project is split into three main pieces:
+The framework is divided into three main components:
 
-- **BaseTest** – handles setting up and tearing down the driver
-- **CalculatorPage** – holds all the calculator's locators and reusable actions
-- **CalculatorTest** – where the actual test cases and assertions live
+- **BaseTest** – Initializes and closes the Appium driver.
+- **CalculatorPage** – Contains calculator locators and reusable actions.
+- **CalculatorTest** – Contains all TestNG test cases and assertions.
 
-Keeping these separate makes it much easier to maintain and reuse as the project grows.
-
----
-
-## 📸 Screenshots
-
-*(Feel free to add screenshots here — emulator setup, the app in action, test runs, TestNG results, etc.)*
+This structure keeps the framework modular, maintainable, and easy to extend.
 
 ---
 
-## 🔮 What I'd Like to Add Next
+# 📸 Screenshots
 
-This is still a work in progress, and there's a lot I want to build on:
+## Project Structure
 
-- Extent Reports for nicer test summaries
-- Auto screenshot capture on failure
-- Jenkins CI/CD pipeline
-- GitHub Actions integration
+![Project Structure](images/project%20structure.png)
+
+---
+
+## Calculator App
+
+![Calculator App](images/calculator.png)
+
+---
+
+## Test Results
+
+![Test Results](images/testresults.png)
+
+---
+
+# 🎥 Automation Demo
+
+📹 **Watch the automation demo here:**
+
+[▶️ Appium Calculator Automation Demo](videos/appium-calculator-demo.mp4)
+
+---
+
+## 🔮 Future Improvements
+
+Some features I'd like to add in the future:
+
+- Extent Reports
+- Screenshot capture on test failure
+- Jenkins CI/CD integration
+- GitHub Actions workflow
 - Data-driven testing
-- Better logging with Log4j
+- Log4j logging
+- Parallel test execution
 
 ---
 
 ## 👩‍💻 About Me
 
 **Samskruthi M**
-Information Science and Engineering student, passionate about software testing, mobile automation, and Java development. Always looking to learn and build more.
 
-
+Information Science and Engineering student with an interest in **Software Testing**, **Mobile Automation**, **Java**, and **QA Automation**. I'm continuously learning and building projects to strengthen my automation testing skills.
