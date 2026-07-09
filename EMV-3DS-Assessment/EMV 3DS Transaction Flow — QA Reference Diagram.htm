@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///C:/Users/samsk/Downloads/EMV_3DS_Flow_QA_Reference.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMV 3DS Transaction Flow — QA Reference Diagram</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #EEF1F4;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 24px 16px 40px;
+  }
+  .card {
+    max-width: 1260px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border: 1px solid #D3D9DE;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  svg { display: block; width: 100%; height: auto; }
+  .legend {
+    max-width: 1260px;
+    margin: 14px auto 0;
+    background: #FFFFFF;
+    border: 1px solid #D3D9DE;
+    border-radius: 6px;
+    padding: 12px 18px;
+    color: #1E2A38;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 28px;
+  }
+  .legend .title {
+    width: 100%;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #5B6B77;
+    margin-bottom: 2px;
+  }
+  .legend .item { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+</style>
+</head>
+<body>
+  <div class="card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 1612" width="1260" height="1612" font-family="Arial, Helvetica, sans-serif">
+<defs>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,2.5 L0,5 Z" fill="#5B6B77"></path></marker>
+<marker id="arrowGreen" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,2.5 L0,5 Z" fill="#1E7A4C"></path></marker>
+<marker id="arrowAmber" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,2.5 L0,5 Z" fill="#9A6400"></path></marker>
+<marker id="arrowFail" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,2.5 L0,5 Z" fill="#B3261E"></path></marker>
+</defs>
+<rect x="0" y="0" width="1260" height="1612" fill="#FFFFFF"></rect>
+<text x="630.0" y="26" text-anchor="middle" font-size="16" font-weight="700" fill="#1E2A38">EMV 3-D Secure — Card Payment Transaction Flow</text>
+<text x="630.0" y="43" text-anchor="middle" font-size="10.5" fill="#5B6B77">Test / QA reference • numbered steps map to test case IDs • read top to bottom</text>
+<rect x="40" y="96" width="190" height="1516" fill="#FBFCFD" stroke="#D3D9DE" stroke-width="1"></rect>
+<rect x="238" y="96" width="190" height="1516" fill="#F3F5F7" stroke="#D3D9DE" stroke-width="1"></rect>
+<rect x="436" y="96" width="190" height="1516" fill="#FBFCFD" stroke="#D3D9DE" stroke-width="1"></rect>
+<rect x="634" y="96" width="190" height="1516" fill="#F3F5F7" stroke="#D3D9DE" stroke-width="1"></rect>
+<rect x="832" y="96" width="190" height="1516" fill="#FBFCFD" stroke="#D3D9DE" stroke-width="1"></rect>
+<rect x="1030" y="96" width="190" height="1516" fill="#F3F5F7" stroke="#D3D9DE" stroke-width="1"></rect>
+<rect x="40" y="96" width="190" height="54" fill="#1E2A38"></rect>
+<text x="135.0" y="127.0" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">Customer</text>
+<rect x="238" y="96" width="190" height="54" fill="#1E2A38"></rect>
+<text x="333.0" y="120.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">Merchant</text>
+<text x="333.0" y="133.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">Website</text>
+<rect x="436" y="96" width="190" height="54" fill="#1E2A38"></rect>
+<text x="531.0" y="120.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">Payment</text>
+<text x="531.0" y="133.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">Gateway</text>
+<rect x="634" y="96" width="190" height="54" fill="#1E2A38"></rect>
+<text x="729.0" y="120.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">3DS Server</text>
+<text x="729.0" y="133.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">(ACS)</text>
+<rect x="832" y="96" width="190" height="54" fill="#1E2A38"></rect>
+<text x="927.0" y="120.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">Card</text>
+<text x="927.0" y="133.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">Network</text>
+<rect x="1030" y="96" width="190" height="54" fill="#1E2A38"></rect>
+<text x="1125.0" y="120.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">Issuing</text>
+<text x="1125.0" y="133.5" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">Bank</text>
+<rect x="55.0" y="136" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="135.0" y="156.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Enter card details</text>
+<text x="135.0" y="171.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">and click Pay</text>
+<circle cx="53.0" cy="134" r="10" fill="#2E5266"></circle>
+<text x="53.0" y="137.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">1</text>
+<rect x="253.0" y="216" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="333.0" y="236.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Submit payment</text>
+<text x="333.0" y="251.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">request</text>
+<circle cx="251.0" cy="214" r="10" fill="#2E5266"></circle>
+<text x="251.0" y="217.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">2</text>
+<path d="M135.0,182 L135.0,199.0 L333.0,199.0 L333.0,216" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="451.0" y="296" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="531.0" y="316.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Tokenize PAN</text>
+<text x="531.0" y="331.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">(card number → token)</text>
+<circle cx="449.0" cy="294" r="10" fill="#2E5266"></circle>
+<text x="449.0" y="297.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">3</text>
+<path d="M333.0,262 L333.0,279.0 L531.0,279.0 L531.0,296" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="397.2" y="272.0" width="69.6" height="14" fill="#FFFFFF"></rect>
+<text x="432.0" y="282.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5B6B77">Payment API</text>
+<rect x="451.0" y="376" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="531.0" y="396.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Initiate 3DS</text>
+<text x="531.0" y="411.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">authentication</text>
+<circle cx="449.0" cy="374" r="10" fill="#2E5266"></circle>
+<text x="449.0" y="377.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">4</text>
+<path d="M531.0,342 L531.0,376" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<polygon points="729.0,450 797.0,486 729.0,522 661.0,486" fill="#EEF3F6" stroke="#2E5266" stroke-width="1.3"></polygon>
+<text x="729.0" y="483.5" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Risk-based</text>
+<text x="729.0" y="497.5" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">analysis</text>
+<circle cx="665.0" cy="452" r="10" fill="#2E5266"></circle>
+<text x="665.0" y="455.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">5</text>
+<path d="M531.0,422 L531.0,436.0 L729.0,436.0 L729.0,450" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="592.4" y="429.0" width="75.19999999999999" height="14" fill="#FFFFFF"></rect>
+<text x="630.0" y="439.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5B6B77">3DS Auth API</text>
+<rect x="616.0" y="536" width="116" height="40" rx="5" fill="#FFFFFF" stroke="#1E7A4C" stroke-width="1.3"></rect>
+<text x="674.0" y="553.0" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1E7A4C">Frictionless</text>
+<text x="674.0" y="567.5" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1E7A4C">(low risk)</text>
+<circle cx="614.0" cy="534" r="10" fill="#2E5266"></circle>
+<text x="614.0" y="537.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">6a</text>
+<rect x="726.0" y="536" width="116" height="40" rx="5" fill="#FFFFFF" stroke="#9A6400" stroke-width="1.3"></rect>
+<text x="784.0" y="553.0" text-anchor="middle" font-size="10.5" font-weight="700" fill="#9A6400">Challenge</text>
+<text x="784.0" y="567.5" text-anchor="middle" font-size="10.5" font-weight="700" fill="#9A6400">(step-up)</text>
+<circle cx="724.0" cy="534" r="10" fill="#2E5266"></circle>
+<text x="724.0" y="537.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">6b</text>
+<path d="M721.0,522 L674.0,522 L674.0,536" fill="none" stroke="#1E7A4C" stroke-width="1.4" marker-end="url(#arrowGreen)"></path>
+<text x="669.0" y="518" text-anchor="middle" font-size="9" font-weight="700" fill="#1E7A4C">low risk</text>
+<path d="M737.0,522 L784.0,522 L784.0,536" fill="none" stroke="#9A6400" stroke-width="1.4" marker-end="url(#arrowAmber)"></path>
+<text x="789.0" y="518" text-anchor="middle" font-size="9" font-weight="700" fill="#9A6400">high risk</text>
+<rect x="55.0" y="616" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="135.0" y="636.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Enter OTP /</text>
+<text x="135.0" y="651.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">biometric</text>
+<circle cx="53.0" cy="614" r="10" fill="#2E5266"></circle>
+<text x="53.0" y="617.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">7</text>
+<path d="M784.0,576 L784.0,596.0 L135.0,596.0 L135.0,616" fill="none" stroke="#9A6400" stroke-width="1.4" marker-end="url(#arrowAmber)"></path>
+<rect x="649.0" y="696" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="729.0" y="716.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Validate OTP</text>
+<text x="729.0" y="731.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">response</text>
+<circle cx="647.0" cy="694" r="10" fill="#2E5266"></circle>
+<text x="647.0" y="697.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">8</text>
+<path d="M135.0,662 L135.0,679.0 L729.0,679.0 L729.0,696" fill="none" stroke="#9A6400" stroke-width="1.4" marker-end="url(#arrowAmber)"></path>
+<path d="M674.0,576 L674.0,636.0 L729.0,636.0 L729.0,696" fill="none" stroke="#1E7A4C" stroke-width="1.4" marker-end="url(#arrowGreen)" stroke-dasharray="4,3"></path>
+<rect x="451.0" y="776" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="531.0" y="796.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Receive 3DS</text>
+<text x="531.0" y="811.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">authentication result</text>
+<circle cx="449.0" cy="774" r="10" fill="#2E5266"></circle>
+<text x="449.0" y="777.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">9</text>
+<path d="M729.0,742 L729.0,759.0 L531.0,759.0 L531.0,776" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="451.0" y="856" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="531.0" y="876.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Send authorization</text>
+<text x="531.0" y="891.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">request</text>
+<circle cx="449.0" cy="854" r="10" fill="#2E5266"></circle>
+<text x="449.0" y="857.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">10</text>
+<path d="M531.0,822 L531.0,856" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="847.0" y="936" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="927.0" y="956.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Route to</text>
+<text x="927.0" y="971.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">issuing bank</text>
+<circle cx="845.0" cy="934" r="10" fill="#2E5266"></circle>
+<text x="845.0" y="937.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">11</text>
+<path d="M531.0,902 L531.0,919.0 L927.0,919.0 L927.0,936" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="677.4" y="912.0" width="103.19999999999999" height="14" fill="#FFFFFF"></rect>
+<text x="729.0" y="922.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5B6B77">Authorization API</text>
+<rect x="1045.0" y="1016" width="160" height="92" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<circle cx="1043.0" cy="1014" r="10" fill="#2E5266"></circle>
+<text x="1043.0" y="1017.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">12</text>
+<text x="1125.0" y="1032" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1E2A38">Issuer validation</text>
+<text x="1055.0" y="1046" font-size="9" font-weight="500" fill="#5B6B77">• Card status</text>
+<text x="1055.0" y="1061" font-size="9" font-weight="500" fill="#5B6B77">• Balance / limit</text>
+<text x="1055.0" y="1076" font-size="9" font-weight="500" fill="#5B6B77">• Fraud screening</text>
+<text x="1055.0" y="1091" font-size="9" font-weight="500" fill="#5B6B77">• CVV &amp; expiry</text>
+<path d="M927.0,982 L927.0,999.0 L1125.0,999.0 L1125.0,1016" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="988.4" y="992.0" width="75.19999999999999" height="14" fill="#FFFFFF"></rect>
+<text x="1026.0" y="1002.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5B6B77">Auth request</text>
+<rect x="1045.0" y="1142" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="1125.0" y="1162.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Approve /</text>
+<text x="1125.0" y="1177.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Decline</text>
+<circle cx="1043.0" cy="1140" r="10" fill="#2E5266"></circle>
+<text x="1043.0" y="1143.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">13</text>
+<path d="M1125.0,1108 L1125.0,1142" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="847.0" y="1222" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="927.0" y="1242.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Forward</text>
+<text x="927.0" y="1257.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">response</text>
+<circle cx="845.0" cy="1220" r="10" fill="#2E5266"></circle>
+<text x="845.0" y="1223.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">14</text>
+<path d="M1125.0,1188 L1125.0,1205.0 L927.0,1205.0 L927.0,1222" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="985.6" y="1198.0" width="80.8" height="14" fill="#FFFFFF"></rect>
+<text x="1026.0" y="1208.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5B6B77">Auth response</text>
+<rect x="451.0" y="1302" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="531.0" y="1322.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Return response</text>
+<text x="531.0" y="1337.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">to merchant</text>
+<circle cx="449.0" cy="1300" r="10" fill="#2E5266"></circle>
+<text x="449.0" y="1303.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">15</text>
+<path d="M927.0,1268 L927.0,1285.0 L531.0,1285.0 L531.0,1302" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="253.0" y="1382" width="160" height="46" rx="5" fill="#FFFFFF" stroke="#2E5266" stroke-width="1.3"></rect>
+<text x="333.0" y="1402.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">Display result</text>
+<text x="333.0" y="1417.0" text-anchor="middle" font-size="11" font-weight="700" fill="#1E2A38">to customer</text>
+<circle cx="251.0" cy="1380" r="10" fill="#2E5266"></circle>
+<text x="251.0" y="1383.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">16</text>
+<path d="M531.0,1348 L531.0,1365.0 L333.0,1365.0 L333.0,1382" fill="none" stroke="#5B6B77" stroke-width="1.4" marker-end="url(#arrow)"></path>
+<rect x="397.2" y="1358.0" width="69.6" height="14" fill="#FFFFFF"></rect>
+<text x="432.0" y="1368.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5B6B77">Payment API</text>
+<rect x="35.0" y="1462" width="104" height="40" rx="5" fill="#FFFFFF" stroke="#1E7A4C" stroke-width="1.3"></rect>
+<text x="87.0" y="1479.0" text-anchor="middle" font-size="10" font-weight="700" fill="#1E7A4C">Payment</text>
+<text x="87.0" y="1493.0" text-anchor="middle" font-size="10" font-weight="700" fill="#1E7A4C">successful</text>
+<circle cx="33.0" cy="1460" r="10" fill="#2E5266"></circle>
+<text x="33.0" y="1463.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">17a</text>
+<rect x="131.0" y="1462" width="104" height="40" rx="5" fill="#FFFFFF" stroke="#B3261E" stroke-width="1.3"></rect>
+<text x="183.0" y="1479.0" text-anchor="middle" font-size="10" font-weight="700" fill="#B3261E">Payment</text>
+<text x="183.0" y="1493.0" text-anchor="middle" font-size="10" font-weight="700" fill="#B3261E">failed</text>
+<circle cx="129.0" cy="1460" r="10" fill="#2E5266"></circle>
+<text x="129.0" y="1463.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">17b</text>
+<path d="M327.0,1428 L327.0,1448 L87.0,1448 L87.0,1462" fill="none" stroke="#1E7A4C" stroke-width="1.4" marker-end="url(#arrowGreen)"></path>
+<text x="200.0" y="1444" text-anchor="middle" font-size="9" font-weight="700" fill="#1E7A4C">success</text>
+<path d="M339.0,1428 L339.0,1448 L183.0,1448 L183.0,1462" fill="none" stroke="#B3261E" stroke-width="1.4" marker-end="url(#arrowFail)"></path>
+<text x="268.0" y="1444" text-anchor="middle" font-size="9" font-weight="700" fill="#B3261E">failure</text>
+<rect x="35.0" y="1542" width="104" height="40" rx="5" fill="#FFFFFF" stroke="#1E7A4C" stroke-width="1.3"></rect>
+<text x="87.0" y="1559.0" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1E7A4C">Order confirmed</text>
+<text x="87.0" y="1572.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1E7A4C">+ receipt sent</text>
+<circle cx="33.0" cy="1540" r="10" fill="#2E5266"></circle>
+<text x="33.0" y="1543.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">18a</text>
+<rect x="131.0" y="1542" width="104" height="40" rx="5" fill="#FFFFFF" stroke="#B3261E" stroke-width="1.3"></rect>
+<text x="183.0" y="1559.0" text-anchor="middle" font-size="9.5" font-weight="700" fill="#B3261E">Show error;</text>
+<text x="183.0" y="1572.5" text-anchor="middle" font-size="9.5" font-weight="700" fill="#B3261E">retry / new method</text>
+<circle cx="129.0" cy="1540" r="10" fill="#2E5266"></circle>
+<text x="129.0" y="1543.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">18b</text>
+<path d="M87.0,1502 L87.0,1542" fill="none" stroke="#1E7A4C" stroke-width="1.4" marker-end="url(#arrowGreen)"></path>
+<path d="M183.0,1502 L183.0,1542" fill="none" stroke="#B3261E" stroke-width="1.4" marker-end="url(#arrowFail)"></path>
+</svg>
+  </div>
+  <div class="legend">
+    <div class="title">Legend</div>
+    <div class="item"><span class="swatch" style="background:#2E5266"></span>Numbered step (test case ref.)</div>
+    <div class="item"><span class="swatch" style="background:#1E7A4C"></span>Frictionless / success path</div>
+    <div class="item"><span class="swatch" style="background:#9A6400"></span>Challenge (step-up) path</div>
+    <div class="item"><span class="swatch" style="background:#B3261E"></span>Failure / decline path</div>
+    <div class="item">→ labeled arrow = API call between systems</div>
+  </div>
+
+
+</body></html>
