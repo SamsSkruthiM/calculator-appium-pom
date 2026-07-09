@@ -22,7 +22,7 @@ public class CalculatorPage {
     public void clickMinus() {
         driver.findElement(AppiumBy.accessibilityId("minus")).click();
     }
-
+    git commit -m "Added refund validation assessment"
     public void clickMultiply() {
         driver.findElement(AppiumBy.accessibilityId("multiply")).click();
     }
